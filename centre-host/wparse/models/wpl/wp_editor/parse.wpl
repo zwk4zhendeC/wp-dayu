@@ -1,0 +1,13 @@
+package /wp_editor/ {
+    rule ops {
+        (
+            json | take(log) | json_unescape() | (
+                time: date,
+                chars: level<[,]>,
+                chars: obj<<,>>,
+                _{:},
+                chars: context\0
+            )
+        )
+    }
+}

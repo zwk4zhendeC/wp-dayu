@@ -5,6 +5,7 @@ data
 .run
 .*
 !.warp_parse
+!.env
 .report
 out
 getting_started/conf
@@ -14,6 +15,7 @@ gen*.dat
 record.md
 **/data/
 **/logs/
+**/local.yml
 **/recover.lock
 *.html
 *.py

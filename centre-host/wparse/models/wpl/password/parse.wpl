@@ -1,0 +1,12 @@
+package /password/ {
+    rule ops {
+        (
+            json | take(log) | json_unescape() | (
+              time:date<[,]>,
+              chars:obj<[,]>,
+              chars:level<[,]>,
+              chars:content\0
+            )  
+        )
+    }
+}

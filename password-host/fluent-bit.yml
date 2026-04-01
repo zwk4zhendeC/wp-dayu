@@ -6,6 +6,12 @@ service:
   http_listen: 0.0.0.0
   http_port: 2020
 
+env:
+  VAULTWARDEN_CONTAINER_NAME: vaultwarden
+  VAULTWARDEN_APP_NAME: vaultwarden
+  CADDY_CONTAINER_NAME: caddy
+  CADDY_APP_NAME: caddy
+
 pipeline:
   inputs:
     # 密码服务日志
@@ -14,10 +20,7 @@ pipeline:
       path_key: filename
       refresh_interval: 5
       skip_long_lines: on
-      tag: docker.app.password
-    - name: tail
-      path: /host/var/log/nginx/*
-      tag: host.app.nginx
+      tag: docker.app.*
 
   filters:
     # 添加容器名信息
@@ -25,20 +28,32 @@ pipeline:
       match: 'docker.app.*'
       script: ./script/docker-utils.lua
       call: extract_container_name
-    # 只保留容器名=vaultwarden
+
+    # 只保留容器名=vaultwarden和caddy的
     - name: grep
-      match: 'docker.app.password'
-      regex: container_name vaultwarden
+      match: 'docker.app.*'
+      logical_op: or
+      regex: 
+        - container_name ${VAULTWARDEN_CONTAINER_NAME}
+        - container_name ${CADDY_CONTAINER_NAME}
+
+    # 将容器名提供到tag中
+    - name: rewrite_tag
+      match: 'docker.app.*'
+      rule: $container_name .* retag.docker.app.$container_name false
+
+    # 添加密码服务相关业务字段
+    - name: modify
+      match: retag.docker.app.${VAULTWARDEN_CONTAINER_NAME}
+      add:
+        - app_name ${VAULTWARDEN_APP_NAME}
+
     # 添加相关业务字段
     - name: modify
-      match: docker.app.password
+      match: retag.docker.app.${CADDY_CONTAINER_NAME}
       add:
-        - app_name vaultwarden
-    # 添加相关业务字段
-    - name: modify
-      match: host.app.nginx
-      add:
-        - app_name nginx
+        - app_name ${CADDY_APP_NAME}
+
     # 添加相关业务字段
     - name: modify
       match: '*'
@@ -46,10 +61,10 @@ pipeline:
         - host_name password
 
   outputs:
-    # - name: stdout
-    #   match: "*"
-    - name: tcp
+    - name: stdout
       match: "*"
-      host: 193.112.112.194
-      port: 19003
-      format: json_lines
+    # - name: tcp
+    #   match: "*"
+    #   host: 193.112.112.194
+    #   port: 19003
+    #   format: json_lines
