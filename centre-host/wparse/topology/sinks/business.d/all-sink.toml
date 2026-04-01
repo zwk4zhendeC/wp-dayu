@@ -1,0 +1,11 @@
+version = "2.0"
+
+[sink_group]
+name = "all"
+rule = ["*"]
+
+# vlog
+[[sink_group.sinks]]
+name = "victorialogs_output"
+connect = "victorialogs_sink"
+params = { endpoint = "http://localhost:9428?_msg_field=content,log", insert_path = "/insert/jsonline", flush_interval_secs = 3}

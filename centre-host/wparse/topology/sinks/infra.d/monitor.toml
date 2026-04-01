@@ -12,3 +12,6 @@ params = {  file = "monitor.dat" }
 [[sink_group.sinks]]
 name = "victoriametrics"
 connect = "victoriametrics_sink"
+[connectors.params]
+insert_url = "http://127.0.0.1:8428/api/v1/import/prometheus"
+flush_interval_secs = 1
