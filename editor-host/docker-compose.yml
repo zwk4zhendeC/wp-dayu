@@ -3,26 +3,26 @@ version: '3.8'
 services:
   fluent-bit:
     image: fluent/fluent-bit:4.0.3   # 选择你需要的版本
-    container_name: fluent-bit
     working_dir: /fluent-bit/etc
     restart: always
     volumes:
       # 挂载配置文件
       - ./fluent-bit.yml:/fluent-bit/etc/fluent-bit.yml
-      - ./script:/fluent-bit/etc/script
       # 宿主机日志目录
       - /var/log:/var/log:ro
       # Docker 容器日志目录
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      # systemd所需的目录
+      - /etc/machine-id:/etc/machine-id:ro
+      # -  /run/log/journal:/run/log/journal
       # 系统时区（可选）
       - /etc/localtime:/etc/localtime:ro
-        # 系统时区（可选）
-      - /etc/machine-id:/etc/machine-id:ro
+      # 系统时区（可选）
       - /:/host:ro
-    ports:
-      - "2020:2020"   # Fluent Bit 管理端口
-      - "24224:24224" # Fluentd 兼容输入 (forward)
-      - "24224:24224/udp"
+    # ports:
+    #   - "2020:2020"   # Fluent Bit 管理端口
+    #   - "24224:24224" # Fluentd 兼容输入 (forward)
+    #   - "24224:24224/udp"
     environment:
       - FLB_LOG_LEVEL=info
     command: >

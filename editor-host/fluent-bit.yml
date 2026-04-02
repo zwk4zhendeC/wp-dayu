@@ -1,0 +1,53 @@
+service:
+  flush: 1
+  # daemon: off
+  # log_level: info
+  # http_server: on
+  # http_listen: 0.0.0.0
+  # http_port: 2020
+
+env:
+  VAULTWARDEN_CONTAINER_NAME: vaultwarden
+  VAULTWARDEN_APP_NAME: vaultwarden
+  CADDY_CONTAINER_NAME: caddy
+  CADDY_APP_NAME: caddy
+
+pipeline:
+  inputs:
+    - name: systemd
+      tag: systemd.app.wp-editor
+      systemd_filter: 
+        - _SYSTEMD_UNIT=wp-editor-alpha.service
+        - _SYSTEMD_UNIT=wp-editor-beta.service
+        - _SYSTEMD_UNIT=wp-editor.service
+      read_from_tail: on
+
+    - name: systemd
+      tag: systemd.app.nginx
+      systemd_filter: 
+        - _SYSTEMD_UNIT=nginx.service 
+      read_from_tail: on
+
+  filters:
+
+    # 添加密码服务相关业务字段
+    - name: modify
+      match: systemd.app.wp-editor
+      add:
+        - app_name wp-editor
+
+    # 添加nginx服务相关业务字段
+    - name: modify
+      match: systemd.app.nginx
+      add:
+        - app_name nginx
+
+    # 添加相关业务字段
+    - name: modify
+      match: '*'
+      add: 
+        - host_name ${HOSTNAME}
+
+  outputs:
+    - name: stdout
+      match: "*"
