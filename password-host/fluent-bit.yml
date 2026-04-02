@@ -58,13 +58,11 @@ pipeline:
     - name: modify
       match: '*'
       add: 
-        - host_name password
+        - host_name ${HOSTNAME}
 
   outputs:
-    - name: stdout
+    - name: tcp
       match: "*"
-    # - name: tcp
-    #   match: "*"
-    #   host: 193.112.112.194
-    #   port: 19003
-    #   format: json_lines
+      host: ${CENTRE_HOST_IP}
+      port: 19002
+      format: json_lines
