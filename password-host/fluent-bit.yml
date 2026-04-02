@@ -12,6 +12,10 @@ env:
   CADDY_CONTAINER_NAME: caddy
   CADDY_APP_NAME: caddy
 
+parsers:
+  - name: json
+    format: json
+
 pipeline:
   inputs:
     # 密码服务日志
@@ -21,6 +25,7 @@ pipeline:
       refresh_interval: 5
       skip_long_lines: on
       tag: docker.app.*
+      parser: docker 
 
   filters:
     # 添加容器名信息
@@ -37,6 +42,13 @@ pipeline:
         - container_name ${VAULTWARDEN_CONTAINER_NAME}
         - container_name ${CADDY_CONTAINER_NAME}
 
+    - name: parser
+      match: docker.*
+      key_name: log
+      parser: json
+      preserve_key: false
+      reserve_data: true
+      
     # 将容器名提供到tag中
     - name: rewrite_tag
       match: 'docker.app.*'
@@ -61,6 +73,8 @@ pipeline:
         - host_name ${HOSTNAME}
 
   outputs:
+    - name: stdout
+      match: "*"
     - name: tcp
       match: "*"
       host: ${CENTRE_HOST_IP}
