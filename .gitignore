@@ -4,6 +4,7 @@ data
 *.raw
 .run
 .*
+!.github
 !.warp_parse
 !.env
 .report
