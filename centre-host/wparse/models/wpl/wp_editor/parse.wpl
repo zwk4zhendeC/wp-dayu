@@ -6,7 +6,7 @@ package /wp_editor/ {
                 chars: level<[,]>,
                 chars: obj<<,>>,
                 _{:},
-                chars: context\0
+                chars: content\0
             )
         )
     }
