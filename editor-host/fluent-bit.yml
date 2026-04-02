@@ -29,6 +29,10 @@ pipeline:
       read_from_tail: on
 
   filters:
+    - name: modify
+      match: systemd.app.*
+      rename:
+        - MESSAGE log
 
     # 添加密码服务相关业务字段
     - name: modify
