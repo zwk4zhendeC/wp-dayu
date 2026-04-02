@@ -1,4 +1,28 @@
 services:
+
+  warp-parse:
+    image: ghcr.io/wp-labs/warp-parse:0.21.4-alpha
+    container_name: warp-parse
+    restart: unless-stopped
+    ports:
+      - "19002:19002"
+    volumes:
+      - ./wparse:/data
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["cd /data && wparse deamon"]
+
+
+  wp-monitor:
+    image: ghcr.io/wp-labs/wp-monitor:0.2.2-alpha
+    container_name: wp-monitor
+    restart: unless-stopped
+    ports:
+      - "18080:18080"
+    environment:
+      APP_CONFIG_PATH: /app/config/app.toml
+    volumes:
+      - ./wp-monitor/config:/app/config:ro
+
   victoria-metrics:
     container_name: victoria-metrics
     image: victoriametrics/victoria-metrics:v1.133.0

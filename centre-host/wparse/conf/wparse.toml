@@ -16,8 +16,8 @@ rate_limit_rps =  0
 path = "./data/rescue"
 
 [log_conf]
-level = "debug,ctrl=debug,data=trace"
-output = "File"
+level = "info"
+output = "Console"
 [log_conf.file]
 path = "./data/logs"
 
