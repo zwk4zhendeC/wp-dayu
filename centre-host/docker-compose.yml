@@ -1,6 +1,7 @@
 services:
 
   warp-parse:
+    user: "root"
     image: ghcr.io/wp-labs/warp-parse:0.21.4-alpha
     container_name: warp-parse
     restart: unless-stopped
@@ -8,9 +9,7 @@ services:
       - "19002:19002"
     volumes:
       - ./wparse:/data
-    entrypoint: ["/bin/sh", "-c"]
-    command: ["cd /data && wparse deamon"]
-
+    entrypoint: ["wparse","deamon","--work-root","/data"]
 
   wp-monitor:
     image: ghcr.io/wp-labs/wp-monitor:0.2.2-alpha
