@@ -4,8 +4,8 @@ data
 *.raw
 .run
 .*
+!.github
 !.warp_parse
-!.env
 .report
 out
 getting_started/conf

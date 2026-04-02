@@ -49,5 +49,10 @@ pipeline:
         - host_name ${HOSTNAME}
 
   outputs:
-    - name: stdout
+    # - name: stdout
+    #   match: "*"
+    - name: tcp
       match: "*"
+      host: ${CENTRE_HOST_IP}
+      port: 19002
+      format: json_lines
