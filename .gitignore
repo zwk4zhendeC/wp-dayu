@@ -6,6 +6,7 @@ data
 .*
 !.github
 !.warp_parse
+!.env.example
 .report
 out
 getting_started/conf
