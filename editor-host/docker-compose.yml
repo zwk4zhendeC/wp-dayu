@@ -5,6 +5,10 @@ services:
     image: fluent/fluent-bit:4.0.3   # 选择你需要的版本
     working_dir: /fluent-bit/etc
     restart: always
+    env_file:
+      - ./.env
+    environment:
+      - FLB_LOG_LEVEL=info
     volumes:
       # 挂载配置文件
       - ./fluent-bit.yml:/fluent-bit/etc/fluent-bit.yml
@@ -23,8 +27,6 @@ services:
     #   - "2020:2020"   # Fluent Bit 管理端口
     #   - "24224:24224" # Fluentd 兼容输入 (forward)
     #   - "24224:24224/udp"
-    environment:
-      - FLB_LOG_LEVEL=info
     command: >
       /fluent-bit/bin/fluent-bit
       -c /fluent-bit/etc/fluent-bit.yml
