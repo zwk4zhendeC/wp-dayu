@@ -11,7 +11,7 @@ services:
       - FLB_LOG_LEVEL=info
     volumes:
       # 挂载配置文件
-      - ./fluent-bit/fluent-bit.yml:/fluent-bit/etc
+      - ./fluent-bit:/fluent-bit/etc
       # 宿主机日志目录
       - /var/log:/var/log:ro
       # Docker 容器日志目录
