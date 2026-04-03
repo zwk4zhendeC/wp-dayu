@@ -1,3 +1,4 @@
+#[copy_raw(name:"raw_log")]
 package /password/ {
 //    rule 操作日志 {
 //        (
@@ -11,9 +12,8 @@ package /password/ {
 //    }
     rule all {
         (
-            #[copy_raw(name:"raw_log")]
-            json | take(log) | json_unescape() | (
-              chars:content\0
+            json(
+                  symbol(vaultwarden)@app_name
             )
         )
     }

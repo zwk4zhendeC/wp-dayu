@@ -1,9 +1,9 @@
+#[copy_raw(name:"raw_log")]
 package /wp_monitor/ {
     rule all {
         (
-            #[copy_raw(name:"raw_log")]
-            json | take(log) | json_unescape() | (
-              chars:content\0
+            json(
+                  symbol(wp-monitor)@app_name
             )
         )
     }
