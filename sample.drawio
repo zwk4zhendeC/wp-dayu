@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="wOkwpXGVljjnjOai3VBq" name="第 1 页">
-        <mxGraphModel dx="2256" dy="1244" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2218" dy="897" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -23,10 +23,10 @@
                     <mxGeometry x="40" y="710" width="290" height="160" as="geometry"/>
                 </mxCell>
                 <mxCell id="93" value="" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" parent="75" vertex="1">
-                    <mxGeometry x="420" y="790" width="410" height="220" as="geometry"/>
+                    <mxGeometry x="430" y="720" width="410" height="220" as="geometry"/>
                 </mxCell>
                 <mxCell id="94" value="Vlogs" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;arcSize=10;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;fillColor=default;absoluteArcSize=1;" parent="75" vertex="1">
-                    <mxGeometry x="560" y="830" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="570" y="760" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="139" value="" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;arcSize=10;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;fillColor=default;absoluteArcSize=1;" parent="75" vertex="1">
                     <mxGeometry x="37" y="1430" width="790" height="200" as="geometry"/>
@@ -75,7 +75,7 @@
                     <mxGeometry x="220" y="750" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="90" value="中心主机" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" parent="74" vertex="1">
-                    <mxGeometry x="560" y="760" width="100" height="30" as="geometry"/>
+                    <mxGeometry x="570" y="690" width="100" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="102" style="edgeStyle=none;rounded=1;comic=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;shadow=0;strokeColor=#666666;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" parent="74" source="91" target="94" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -84,19 +84,13 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="91" value="wparse" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeWidth=2;arcSize=10;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;absoluteArcSize=1;" parent="74" vertex="1">
-                    <mxGeometry x="440" y="810" width="90" height="190" as="geometry"/>
+                    <mxGeometry x="450" y="740" width="90" height="190" as="geometry"/>
                 </mxCell>
                 <mxCell id="92" value="Vmetrics" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;arcSize=10;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;fillColor=default;absoluteArcSize=1;" parent="74" vertex="1">
-                    <mxGeometry x="560" y="919" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="570" y="849" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="95" value="wp-monitor" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;arcSize=10;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;fillColor=default;absoluteArcSize=1;" parent="74" vertex="1">
-                    <mxGeometry x="700" y="850" width="110" height="90" as="geometry"/>
-                </mxCell>
-                <mxCell id="104" value="&lt;span style=&quot;color: rgb(50, 50, 50); font-family: &amp;quot;Microsoft YaHei&amp;quot;, 微软雅黑, Arial; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgba(255, 255, 255, 0.01); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;&lt;font&gt;暂时是我个人的机器，之后会迁移到wparse-HK中&lt;/font&gt;&lt;/span&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;rounded=1;shadow=0;comic=0;strokeColor=#FFF7BC;strokeWidth=0;align=center;verticalAlign=middle;arcSize=5;fontFamily=钉钉进步体;fontSize=16;fontColor=#000000;fillColor=#FFF7BC;size=23;" parent="74" vertex="1">
-                    <mxGeometry x="440" y="1069" width="430" height="51" as="geometry"/>
-                </mxCell>
-                <mxCell id="106" style="edgeStyle=none;rounded=1;comic=0;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;shadow=0;strokeColor=#666666;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;endArrow=none;endFill=0;" parent="74" source="104" target="93" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                    <mxGeometry x="704" y="759" width="110" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="107" value="部署图" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=钉钉进步体;fontSize=20;fontColor=#34495D;" parent="74" vertex="1">
                     <mxGeometry x="400" y="610" width="80" height="40" as="geometry"/>
@@ -133,6 +127,30 @@
                 </mxCell>
                 <mxCell id="154" value="操作日志" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;arcSize=10;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;fillColor=default;absoluteArcSize=1;" parent="74" vertex="1">
                     <mxGeometry x="60" y="1780" width="530" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="162" value="" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" vertex="1" parent="74">
+                    <mxGeometry x="414" y="1020" width="290" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="163" value="其他节点" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" vertex="1" parent="74">
+                    <mxGeometry x="470" y="990" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="164" style="edgeStyle=none;rounded=1;comic=0;html=1;shadow=0;strokeColor=#666666;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" edge="1" parent="74" source="165" target="168">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="165" value="&lt;span style=&quot;color: rgb(50, 50, 50); background-color: rgba(255, 255, 255, 0.01);&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot; face=&quot;Helvetica&quot;&gt;nginx&lt;/font&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;arcSize=10;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;fillColor=default;absoluteArcSize=1;" vertex="1" parent="74">
+                    <mxGeometry x="434" y="1040" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="166" style="edgeStyle=none;rounded=1;comic=0;html=1;shadow=0;strokeColor=#666666;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" edge="1" parent="74" source="167" target="168">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="167" value="业务" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;arcSize=10;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;fillColor=default;absoluteArcSize=1;" vertex="1" parent="74">
+                    <mxGeometry x="434" y="1110" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="168" value="FBT" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=1;shadow=0;comic=0;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" vertex="1" parent="74">
+                    <mxGeometry x="594" y="1051" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="169" style="edgeStyle=none;rounded=1;comic=0;html=1;entryX=0.667;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;shadow=0;strokeColor=#666666;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=14;fontColor=#34495D;" edge="1" parent="74" source="168" target="91">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="73" value="1" parent="0"/>
             </root>

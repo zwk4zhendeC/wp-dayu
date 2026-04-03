@@ -1,0 +1,65 @@
+<mxfile host="65bd71144e">
+    <diagram id="wOkwpXGVljjnjOai3VBq" name="第 1 页">
+        <mxGraphModel dx="2054" dy="797" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <object label="图背景" id="76">
+                    <mxCell style="" parent="0"/>
+                </object>
+                <mxCell id="78" value="" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;arcSize=10;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;fillColor=default;absoluteArcSize=1;" parent="76" vertex="1">
+                    <mxGeometry x="-26" y="619" width="856" height="381" as="geometry"/>
+                </mxCell>
+                <mxCell id="173" value="" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" vertex="1" parent="76">
+                    <mxGeometry x="20" y="670" width="340" height="280" as="geometry"/>
+                </mxCell>
+                <object label="层级背景" id="75">
+                    <mxCell parent="0"/>
+                </object>
+                <mxCell id="174" value="宿主机" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" vertex="1" parent="75">
+                    <mxGeometry x="160" y="637" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="176" value="" style="ellipse;whiteSpace=wrap;html=1;rounded=1;shadow=0;comic=0;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" vertex="1" parent="75">
+                    <mxGeometry x="400" y="680" width="396" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="177" value="docker容器" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" vertex="1" parent="75">
+                    <mxGeometry x="553" y="640" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="178" value="" style="endArrow=none;html=1;rounded=1;shadow=0;comic=0;strokeColor=#666666;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=14;fontColor=#34495D;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="75" source="180" target="88">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="330" y="740" as="sourcePoint"/>
+                        <mxPoint x="540" y="790" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="179" value="挂载" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rounded=1;shadow=0;comic=0;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" vertex="1" connectable="0" parent="178">
+                    <mxGeometry x="0.1181" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="180" value="&lt;span style=&quot;color: rgb(52, 73, 93);&quot;&gt;systemd二进制日志&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;rounded=1;shadow=0;comic=0;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" vertex="1" parent="75">
+                    <mxGeometry x="230" y="720" width="120" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="190" value="" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" vertex="1" parent="75">
+                    <mxGeometry x="60" y="730" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="191" value="systemd" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" vertex="1" parent="75">
+                    <mxGeometry x="90" y="700" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="组件" parent="0"/>
+                <mxCell id="86" value="&lt;span style=&quot;color: rgb(50, 50, 50); background-color: rgba(255, 255, 255, 0.01);&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot; face=&quot;Helvetica&quot;&gt;nginx&lt;/font&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;arcSize=10;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;fillColor=default;absoluteArcSize=1;" parent="74" vertex="1">
+                    <mxGeometry x="70" y="750" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" value="wp-editor" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;comic=0;strokeColor=default;strokeWidth=2;align=center;verticalAlign=middle;arcSize=10;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;fillColor=default;absoluteArcSize=1;" parent="74" vertex="1">
+                    <mxGeometry x="70" y="800" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="FBT" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=1;shadow=0;comic=0;strokeWidth=2;arcSize=5;fontFamily=钉钉进步体;fontSize=16;fontColor=#34495D;" parent="74" vertex="1">
+                    <mxGeometry x="560" y="710" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="107" value="部署图" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=钉钉进步体;fontSize=20;fontColor=#34495D;" parent="74" vertex="1">
+                    <mxGeometry x="360" y="560" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
