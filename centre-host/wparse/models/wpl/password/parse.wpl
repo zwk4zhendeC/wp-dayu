@@ -1,5 +1,5 @@
 package /password/ {
-    rule ops {
+    rule 操作日志 {
         (
             json | take(log) | json_unescape() | (
               time:date<[,]>,
