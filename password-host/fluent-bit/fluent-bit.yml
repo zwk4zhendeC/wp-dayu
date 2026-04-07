@@ -59,22 +59,25 @@ pipeline:
       match: retag.docker.app.${VAULTWARDEN_CONTAINER_NAME}
       add:
         - app_name ${VAULTWARDEN_APP_NAME}
+        - asset_type vaultwarden
 
     # 添加相关业务字段
     - name: modify
       match: retag.docker.app.${CADDY_CONTAINER_NAME}
       add:
         - app_name ${CADDY_APP_NAME}
+        - asset_type caddy
 
     # 添加相关业务字段
     - name: modify
       match: '*'
       add: 
         - host_name ${HOSTNAME}
+        - host_ip ${HOST_IP}
 
   outputs:
-    - name: stdout
-      match: "*"
+    # - name: stdout
+    #   match: "*"
     - name: tcp
       match: "*"
       host: ${CENTRE_HOST_IP}
