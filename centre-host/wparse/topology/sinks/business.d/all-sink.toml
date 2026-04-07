@@ -4,16 +4,16 @@ version = "2.0"
 name = "all"
 rule = ["*"]
 
-# file
-[[sink_group.sinks]]
-connect = "file_json_sink"
-name = "file_sink"
-params = { file = "all.dat" }
-tags = ["sink_category:business"]
-
-[sink_group.sinks.expect]
-ratio = 0.50
-tol   = 0.02
+# # file
+# [[sink_group.sinks]]
+# connect = "file_json_sink"
+# name = "file_sink"
+# params = { file = "all.dat" }
+# tags = ["sink_category:business"]
+# 
+# [sink_group.sinks.expect]
+# ratio = 0.50
+# tol   = 0.02
 
 
 # vlog
