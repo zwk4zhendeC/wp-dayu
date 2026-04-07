@@ -1,7 +1,6 @@
 services:
-
   fluent-bit:
-    image: fluent/fluent-bit:4.0.3   # 选择你需要的版本
+    image: fluent/fluent-bit:4.0.3 # 选择你需要的版本
     container_name: fluent-bit
     working_dir: /fluent-bit/etc
     restart: always
@@ -34,10 +33,10 @@ services:
       - "19002:19002"
     volumes:
       - ./wparse:/data
-    entrypoint: ["wparse","deamon","--work-root","/data"]
+    entrypoint: ["wparse", "deamon", "--work-root", "/data"]
 
   wp-monitor:
-    image: ghcr.io/wp-labs/wp-monitor:0.2.2-alpha
+    image: ghcr.io/wp-labs/wp-monitor:0.3.1-alpha
     container_name: wp-monitor
     restart: unless-stopped
     ports:
@@ -65,7 +64,15 @@ services:
       - TZ=Asia/Shanghai
     # 健康检查
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:8428/health"]
+      test:
+        [
+          "CMD",
+          "wget",
+          "--quiet",
+          "--tries=1",
+          "--spider",
+          "http://127.0.0.1:8428/health",
+        ]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -91,7 +98,15 @@ services:
       - TZ=Asia/Shanghai
     # 添加健康检查
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:9428/health"]
+      test:
+        [
+          "CMD",
+          "wget",
+          "--quiet",
+          "--tries=1",
+          "--spider",
+          "http://127.0.0.1:9428/health",
+        ]
       interval: 30s
       timeout: 10s
       retries: 3

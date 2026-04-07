@@ -5,3 +5,4 @@
   default_window_min = 15
   time_presets = [5, 15, 30, 60]
   api_version = "v1"
+  log_level = "info"
