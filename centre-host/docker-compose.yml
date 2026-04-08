@@ -36,7 +36,7 @@ services:
     entrypoint: ["wparse", "deamon", "--work-root", "/data"]
 
   wp-monitor:
-    image: ghcr.io/wp-labs/wp-monitor:0.3.2-alpha
+    image: ghcr.io/wp-labs/wp-monitor:0.3.3-alpha
     container_name: wp-monitor
     restart: unless-stopped
     ports:
@@ -111,6 +111,33 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
+
+  blackbox-exporter:
+    image: quay.io/prometheus/blackbox-exporter:v0.28.0
+    container_name: blackbox-exporter
+    restart: unless-stopped
+    ports:
+      - "9115:9115"
+    volumes:
+      - ./blackbox/blackbox.yml:/etc/blackbox_exporter/config.yml:ro
+    command:
+      - --config.file=/etc/blackbox_exporter/config.yml
+
+  vm-agent:
+    image: victoriametrics/vmagent:v1.139.0
+    container_name: vm-agent
+    ports:
+      - "8429:8429"
+    env_file:
+      - ./.env
+    volumes:
+      - ./vm-agent/vm-agent.yml:/etc/vm/vm-agent.yml
+    command:
+      - '--promscrape.config=/etc/vm/vm-agent.yml'
+      - '--remoteWrite.url=http://victoria-metrics:8428/api/v1/write'
+      - '--remoteWrite.flushInterval=10s'
+      - '--remoteWrite.label=version=v3'
+    restart: unless-stopped
 
 volumes:
   logs_data:
