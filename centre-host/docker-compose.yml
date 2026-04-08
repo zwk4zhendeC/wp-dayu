@@ -26,7 +26,7 @@ services:
 
   warp-parse:
     user: "root"
-    image: ghcr.io/wp-labs/warp-parse:0.21.6-alpha
+    image: ghcr.io/wp-labs/warp-parse:0.21.7-alpha
     container_name: warp-parse
     restart: unless-stopped
     ports:
