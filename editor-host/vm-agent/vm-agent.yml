@@ -1,5 +1,5 @@
 global:
-  scrape_interval: 1s
+  scrape_interval: '%{METRICS_FLUSH_INTERVAL}'
   scrape_timeout: 10s
 
 scrape_configs:
@@ -7,7 +7,6 @@ scrape_configs:
     static_configs:
       - targets: ['cadvisor:8080']
         labels:
-          version: v2
           app_name: wp-editor
           asset_type: service
           host_ip: "%{HOST_IP}"
@@ -16,3 +15,9 @@ scrape_configs:
         # 多个之间使用| 分割
         regex: '(/system.slice/wp-editor.service)'
         action: keep
+  - job_name: 'host'
+    static_configs:
+      - targets: ['node-exporter:9100']
+        labels:
+          asset_type: host
+          host_ip: "%{HOST_IP}"
