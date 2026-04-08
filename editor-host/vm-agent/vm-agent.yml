@@ -3,17 +3,17 @@ global:
   scrape_timeout: 10s
 
 scrape_configs:
-  - job_name: 'wp-editor-resource'
+  - job_name: 'wp-editor-alpha-resource'
     static_configs:
       - targets: ['cadvisor:8080']
         labels:
-          app_name: wp-editor
+          app_name: wp-editor-alpha
           asset_type: service
           host_ip: "%{HOST_IP}"
     metric_relabel_configs:
       - source_labels: [id]
         # 多个之间使用| 分割
-        regex: '(/system.slice/wp-editor.service)'
+        regex: '(/system.slice/wp-editor-alpha.service)'
         action: keep
   - job_name: 'host'
     static_configs:
@@ -21,11 +21,11 @@ scrape_configs:
         labels:
           asset_type: host
           host_ip: "%{HOST_IP}"
-  - job_name: "wp-editor-request"
+  - job_name: "wp-editor-alpha-request"
     enable_compression: false
     static_configs:
       - targets: ['host.docker.internal:8081']
         labels:
-          app_name: wp-editor
+          app_name: wp-editor-alpha
           asset_type: service
           host_ip: "%{HOST_IP}"

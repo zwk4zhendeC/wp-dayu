@@ -4,7 +4,7 @@ global:
 
 scrape_configs:
 
-  - job_name: wp-editor-connected-icmp
+  - job_name: wp-editor-alpha-connected-icmp
     metrics_path: /probe
     params:
       module: [icmp_ipv4]
@@ -12,7 +12,7 @@ scrape_configs:
       - targets:
           - editor.alpha.warpparse.ai
         labels:
-          app_name: wp-editor
+          app_name: wp-editor-alpha
           asset_type: service
     relabel_configs:
       - source_labels: [__address__]
@@ -22,7 +22,7 @@ scrape_configs:
       - target_label: __address__
         replacement: blackbox-exporter:9115
 
-  - job_name: wp-editor-connected-http
+  - job_name: wp-editor-alpha-connected-http
     metrics_path: /probe
     params:
       module: [https_2xx]
@@ -30,7 +30,7 @@ scrape_configs:
       - targets:
           - https://editor.alpha.warpparse.ai
         labels:
-          app_name: wp-editor
+          app_name: wp-editor-alpha
           asset_type: service
     relabel_configs:
       - source_labels: [__address__]
