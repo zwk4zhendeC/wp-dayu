@@ -1,5 +1,5 @@
 global:
-  scrape_interval: 1s
+  scrape_interval: '%{METRICS_FLUSH_INTERVAL}'
   scrape_timeout: 10s
 
 scrape_configs:
@@ -19,3 +19,9 @@ scrape_configs:
         target_label: container_name
         action: replace
         regex: (.*)
+  - job_name: 'host'
+    static_configs:
+      - targets: ['node-exporter:9100']
+        labels:
+          asset_type: host
+          host_ip: "%{HOST_IP}"
