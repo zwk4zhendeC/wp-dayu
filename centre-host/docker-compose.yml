@@ -112,6 +112,17 @@ services:
       retries: 3
       start_period: 30s
 
+  blackbox-exporter:
+    image: quay.io/prometheus/blackbox-exporter:v0.28.0
+    container_name: blackbox-exporter
+    restart: unless-stopped
+    ports:
+      - "9115:9115"
+    volumes:
+      - ./blackbox.yml:/etc/blackbox_exporter/config.yml:ro
+    command:
+      - --config.file=/etc/blackbox_exporter/config.yml
+
 volumes:
   logs_data:
     driver: local
