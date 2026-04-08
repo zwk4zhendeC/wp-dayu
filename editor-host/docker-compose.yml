@@ -64,7 +64,7 @@ services:
       - '--promscrape.config=/etc/vm/vm-agent.yml'
       - '--remoteWrite.url=http://${CENTRE_HOST_IP}:8428/api/v1/write'
       - '--remoteWrite.flushInterval=${METRICS_FLUSH_INTERVAL}'
-      - '--remoteWrite.label=version=v2'
+      - '--remoteWrite.label=version=v3'
     restart: unless-stopped
 
   node-exporter:

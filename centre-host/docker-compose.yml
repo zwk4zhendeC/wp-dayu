@@ -136,7 +136,7 @@ services:
       - '--promscrape.config=/etc/vm/vm-agent.yml'
       - '--remoteWrite.url=http://victoria-metrics:8428/api/v1/write'
       - '--remoteWrite.flushInterval=10s'
-      - '--remoteWrite.label=version=v2'
+      - '--remoteWrite.label=version=v3'
     restart: unless-stopped
 
 volumes:
