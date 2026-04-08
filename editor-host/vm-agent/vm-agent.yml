@@ -3,19 +3,16 @@ global:
   scrape_timeout: 10s
 
 scrape_configs:
-  - job_name: 'vaultwarden'
+  - job_name: 'wp-editor'
     static_configs:
       - targets: ['cadvisor:8080']
         labels:
-          app_name: vaultwarden
+          version: v2
+          app_name: wp-editor
           asset_type: service
           host_ip: "%{HOST_IP}"
     metric_relabel_configs:
-      - source_labels: [name]
+      - source_labels: [id]
         # 多个之间使用| 分割
-        regex: '(vaultwarden)'
+        regex: '(/system.slice/wp-editor.service)'
         action: keep
-      - source_labels: [name]
-        target_label: container_name
-        action: replace
-        regex: (.*)

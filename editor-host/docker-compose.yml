@@ -11,7 +11,7 @@ services:
       - FLB_LOG_LEVEL=info
     volumes:
       # 挂载配置文件
-      - ./fluent-bit.yml:/fluent-bit/etc/fluent-bit.yml
+      - ./fluent-bit:/fluent-bit/etc
       # 宿主机日志目录
       - /var/log:/var/log:ro
       # Docker 容器日志目录
@@ -30,3 +30,36 @@ services:
     command: >
       /fluent-bit/bin/fluent-bit
       -c /fluent-bit/etc/fluent-bit.yml
+
+  cadvisor:
+    image: ghcr.io/google/cadvisor:0.55.1
+    container_name: cadvisor
+    privileged: true
+    devices:
+      - /dev/kmsg
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      # docker 通信入口
+      - /var/run/docker.sock:/var/run/docker.sock:ro   
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    ports:
+      - "18080:8080"
+    restart: unless-stopped
+
+  vm-agent:
+    image: victoriametrics/vmagent:v1.139.0
+    container_name: vm-agent
+    ports:
+      - "8429:8429"
+    env_file:
+      - ./.env
+    volumes:
+      - ./vm-agent/vm-agent.yml:/etc/vm/vm-agent.yml
+    command:
+      - '--promscrape.config=/etc/vm/vm-agent.yml'
+      - '--remoteWrite.url=http://159.75.67.240:8428/api/v1/write'
+      - '--remoteWrite.flushInterval=1s'
+    restart: unless-stopped
