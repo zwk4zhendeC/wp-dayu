@@ -44,6 +44,7 @@ pipeline:
       match: '*'
       add: 
         - host_name ${HOSTNAME}
+        - host_ip ${HOST_IP}
 
   outputs:
     - name: tcp
