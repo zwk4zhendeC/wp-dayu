@@ -37,12 +37,12 @@ services:
     devices:
       - /dev/kmsg
     volumes:
-      - /:/rootfs:ro
       - /var/run:/var/run:ro
       # docker 通信入口
       - /var/run/docker.sock:/var/run/docker.sock:ro   
-      - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
+      - /:/rootfs:ro
+      - /sys:/sys:ro
       - /dev/disk/:/dev/disk:ro
     ports:
       - "8080:8080"

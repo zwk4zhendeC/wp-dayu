@@ -4,25 +4,27 @@ global:
 
 scrape_configs:
 
-  - job_name: wp-editor-alpha-connected-icmp
+  - job_name: host-icmp
     metrics_path: /probe
     params:
       module: [icmp_ipv4]
     static_configs:
       - targets:
-          - editor.alpha.warpparse.ai
+          - 43.135.36.218
+          - 159.75.114.104
         labels:
-          app_name: wp-editor-alpha
-          asset_type: service
+          asset_type: host
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
       - target_label: service_type
         replacement: icmp
+      - source_labels: [__address__]
+        target_label: host_ip
       - target_label: __address__
         replacement: blackbox-exporter:9115
 
-  - job_name: wp-editor-alpha-connected-http
+  - job_name: service-http
     metrics_path: /probe
     params:
       module: [https_2xx]
@@ -30,7 +32,14 @@ scrape_configs:
       - targets:
           - https://editor.alpha.warpparse.ai
         labels:
+          domain_name: editor.alpha.warpparse.ai
           app_name: wp-editor-alpha
+          asset_type: service
+      - targets:
+          - https://password.corp.dy-sec.com
+        labels:
+          domain_name: password.corp.dy-sec.com
+          app_name: vaultwarden
           asset_type: service
     relabel_configs:
       - source_labels: [__address__]
@@ -40,39 +49,22 @@ scrape_configs:
       - target_label: __address__
         replacement: blackbox-exporter:9115
 
-  - job_name: vaultwarden-connected-icmp
+  - job_name: domain-icmp
     metrics_path: /probe
     params:
       module: [icmp_ipv4]
     static_configs:
       - targets:
           - password.corp.dy-sec.com
+          - editor.alpha.warpparse.ai
         labels:
-          app_name: vaultwarden
-          asset_type: service
+          asset_type: domain
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
+      - source_labels: [__address__]
+        target_label: domain_name
       - target_label: service_type
         replacement: icmp
       - target_label: __address__
         replacement: blackbox-exporter:9115
-
-  - job_name: vaultwarden-connected-http
-    metrics_path: /probe
-    params:
-      module: [https_2xx]
-    static_configs:
-      - targets:
-          - https://password.corp.dy-sec.com
-        labels:
-          app_name: vaultwarden
-          asset_type: service
-    relabel_configs:
-      - source_labels: [__address__]
-        target_label: __param_target
-      - target_label: service_type
-        replacement: http
-      - target_label: __address__
-        replacement: blackbox-exporter:9115
-
