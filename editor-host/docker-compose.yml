@@ -64,7 +64,7 @@ services:
       - '--promscrape.config=/etc/vm/vm-agent.yml'
       - '--remoteWrite.url=http://${CENTRE_HOST_IP}:8428/api/v1/write'
       - '--remoteWrite.flushInterval=${METRICS_FLUSH_INTERVAL}'
-      - '--remoteWrite.label=version=v3'
+      - '--remoteWrite.label=version=v4'
     restart: unless-stopped
 
   node-exporter:
@@ -78,3 +78,16 @@ services:
     restart: unless-stopped
     volumes:
       - '/:/host:ro,rslave'
+
+  blackbox-exporter:
+    image: quay.io/prometheus/blackbox-exporter:v0.28.0
+    container_name: blackbox-exporter
+    restart: unless-stopped
+    ports:
+      - "9115:9115"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./blackbox/blackbox.yml:/etc/blackbox_exporter/config.yml:ro
+    command:
+      - --config.file=/etc/blackbox_exporter/config.yml

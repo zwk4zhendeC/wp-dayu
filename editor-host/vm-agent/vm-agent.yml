@@ -3,6 +3,7 @@ global:
   scrape_timeout: 10s
 
 scrape_configs:
+  # 资源
   - job_name: 'wp-editor-alpha-resource'
     static_configs:
       - targets: ['cadvisor:8080']
@@ -15,12 +16,14 @@ scrape_configs:
         # 多个之间使用| 分割
         regex: '(/system.slice/wp-editor-alpha.service)'
         action: keep
+  # 主机
   - job_name: 'host'
     static_configs:
       - targets: ['node-exporter:9100']
         labels:
           asset_type: host
           host_ip: "%{HOST_IP}"
+  # 请求
   - job_name: "wp-editor-alpha-request"
     enable_compression: false
     static_configs:
@@ -29,3 +32,21 @@ scrape_configs:
           app_name: wp-editor-alpha
           asset_type: service
           host_ip: "%{HOST_IP}"
+  # 可用性
+  - job_name: service-http
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+          - host.docker.internal:8081
+        labels:
+          app_name: wp-editor-alpha
+          asset_type: service
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - target_label: service_type
+        replacement: http
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
